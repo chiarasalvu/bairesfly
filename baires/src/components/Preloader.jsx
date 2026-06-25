@@ -72,7 +72,7 @@ export default function Preloader() {
               ease: [0.22, 1, 0.36, 1],
               delay: 0.45,
             }}
-            className="font-gt-america mt-[18px] max-w-[520px] text-[28px] font-[500] leading-[30px] tracking-[-1px] text-white sm:text-[34px] sm:leading-[36px] sm:tracking-[-2px] lg:text-[40px] lg:leading-[42px] lg:tracking-[-3px]"
+            className="font-gt-america mt-[18px] max-w-[520px] text-[28px] font-[500] leading-[30px] tracking-[-1px] text-white sm:text-[34px] sm:leading-[36px] sm:tracking-[-2px] lg:text-[40px] lg:leading-[42px] lg:tracking-[-5px]"
           >
             El lujo de viajar a tu manera
           </motion.h1>
