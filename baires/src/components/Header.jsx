@@ -69,7 +69,7 @@ export default function Header() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="font-gt-america absolute inset-x-0 top-0 z-50 flex w-full items-center justify-between px-[18px] py-[22px] text-white sm:px-[32px] lg:px-[48px]"
+        className="font-gt-america absolute inset-x-0 top-0 z-50 flex w-full items-center justify-between px-[18px] py-[18px] text-white sm:px-[32px] sm:py-[20px] lg:px-[48px]"
       >
         <motion.a
           variants={fadeDown}
@@ -81,7 +81,7 @@ export default function Header() {
           <img
             src="/img/logo.png"
             alt="Baires Fly S.A."
-            className="h-[68px] w-auto sm:h-[80px]"
+            className="h-[86px] w-auto sm:h-[96px] lg:h-[108px]"
           />
         </motion.a>
 

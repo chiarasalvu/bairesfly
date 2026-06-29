@@ -11,8 +11,8 @@ function PhoneIcon({ className = "" }) {
   return (
     <svg
       className={className}
-      width="18"
-      height="18"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
@@ -32,8 +32,8 @@ function MailIcon({ className = "" }) {
   return (
     <svg
       className={className}
-      width="18"
-      height="18"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
@@ -54,11 +54,68 @@ function MailIcon({ className = "" }) {
   );
 }
 
+function InstagramIcon({ className = "" }) {
+  return (
+    <svg
+      className={className}
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M8.25 4.75H15.75C17.68 4.75 19.25 6.32 19.25 8.25V15.75C19.25 17.68 17.68 19.25 15.75 19.25H8.25C6.32 19.25 4.75 17.68 4.75 15.75V8.25C4.75 6.32 6.32 4.75 8.25 4.75Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path
+        d="M12 15.25C13.79 15.25 15.25 13.79 15.25 12C15.25 10.21 13.79 8.75 12 8.75C10.21 8.75 8.75 10.21 8.75 12C8.75 13.79 10.21 15.25 12 15.25Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path
+        d="M16.55 7.55H16.56"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function FacebookIcon({ className = "" }) {
+  return (
+    <svg
+      className={className}
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M14.25 8.25H15.75V5.25H13.75C11.82 5.25 10.25 6.82 10.25 8.75V10.25H8.25V13.25H10.25V19.25H13.25V13.25H15.35L15.75 10.25H13.25V8.75C13.25 8.47 13.47 8.25 13.75 8.25H14.25Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 const contactItems = [
   {
-    label: "Teléfono",
-    value: "+54 9 11 4048-4399",
-    href: "tel:+5491140484399",
+    label: "Hangar",
+    value: "4776-2800 / 4776-0844",
+    href: "tel:47762800",
+    icon: PhoneIcon,
+  },
+  {
+    label: "Celular",
+    value: "11 3210-4850",
+    href: "tel:+541132104850",
     icon: PhoneIcon,
   },
   {
@@ -66,6 +123,18 @@ const contactItems = [
     value: "consultas@bairesfly.com",
     href: "mailto:consultas@bairesfly.com",
     icon: MailIcon,
+  },
+  {
+    label: "Instagram",
+    value: "@bairesfly",
+    href: "https://www.instagram.com/bairesfly",
+    icon: InstagramIcon,
+  },
+  {
+    label: "Facebook",
+    value: "@bairesfly",
+    href: "https://www.facebook.com/bairesfly",
+    icon: FacebookIcon,
   },
 ];
 
@@ -76,78 +145,72 @@ export default function Contact() {
   return (
     <section
       id="contacto"
-      className="font-gt-america relative w-full overflow-hidden bg-[#F7F7F6] px-[18px] py-[86px] text-[#312726] sm:px-[48px] sm:py-[110px] lg:px-[56px] lg:py-[155px]"
+      className="font-gt-america relative w-full overflow-hidden bg-[#F7F7F6] px-[18px] py-[76px] text-[#312726] sm:px-[48px] sm:py-[96px] lg:px-[56px] lg:py-[118px]"
     >
       <div className="mx-auto w-full max-w-[1500px]">
-        <div className="grid grid-cols-1 gap-[44px] lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-[110px]">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="flex flex-col"
-          >
-            <h2 className="max-w-[760px] text-[42px] font-[500] leading-[42px] tracking-[-3px] text-[#312726] sm:text-[52px] sm:leading-[52px] sm:tracking-[-4px] lg:text-[60px] lg:leading-[60px] lg:tracking-[-5px]">
-              Coordinemos tu próximo vuelo
-            </h2>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="flex w-full flex-col"
+        >
+          <h2 className="max-w-[860px] text-[42px] font-[500] leading-[42px] tracking-[-3px] text-[#312726] sm:text-[52px] sm:leading-[52px] sm:tracking-[-4px] lg:text-[60px] lg:leading-[58px] lg:tracking-[-5px]">
+            Coordinemos tu próximo vuelo
+          </h2>
 
-            <p className="mt-[22px] max-w-[620px] text-[17px] font-[400] leading-[1.35] tracking-[-0.035em] text-[#312726]/60 sm:mt-[30px] sm:text-[20px]">
-              Contanos origen, destino, fecha aproximada y cantidad de
-              pasajeros. Te respondemos con disponibilidad en menos de 24 horas.
-            </p>
-          </motion.div>
+          <p className="mt-[18px] max-w-[610px] text-[16px] font-[400] leading-[1.32] tracking-[-0.035em] text-[#312726]/55 sm:mt-[22px] sm:text-[18px] lg:text-[19px]">
+            Contanos origen, destino, fecha aproximada y cantidad de pasajeros.
+            Te respondemos con disponibilidad en menos de 24 horas.
+          </p>
+        </motion.div>
 
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.12 }}
-            className="grid grid-cols-1 gap-[12px] sm:gap-[14px]"
-          >
-            {contactItems.map((item, index) => {
-              const Icon = item.icon;
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.12 }}
+          className="mt-[42px] grid grid-cols-1 border-t border-[#312726]/12 sm:mt-[52px] sm:grid-cols-2 lg:mt-[66px] lg:grid-cols-5"
+        >
+          {contactItems.map((item, index) => {
+            const Icon = item.icon;
+            const isSocial =
+              item.label === "Instagram" || item.label === "Facebook";
 
-              return (
-                <motion.a
-                  key={item.label}
-                  href={item.href}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{
-                    duration: 0.6,
-                    ease: "easeOut",
-                    delay: index * 0.08,
-                  }}
-                  className="group flex items-center justify-between rounded-[22px] border border-[#312726]/8 bg-white/60 px-[18px] py-[18px] transition-all duration-300 hover:bg-white sm:rounded-[24px] sm:px-[28px] sm:py-[26px]"
-                >
-                  <div className="flex min-w-0 items-center gap-[14px] sm:gap-[16px]">
-                    <span className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full bg-[#312726]/6 text-[#312726] transition-colors duration-300 group-hover:bg-[#312726] group-hover:text-white sm:h-[46px] sm:w-[46px]">
-                      <Icon />
-                    </span>
+            return (
+              <motion.a
+                key={item.label}
+                href={item.href}
+                target={isSocial ? "_blank" : undefined}
+                rel={isSocial ? "noopener noreferrer" : undefined}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                  delay: index * 0.06,
+                }}
+                className="group flex min-h-[88px] flex-col justify-between border-b border-[#312726]/12 py-[16px] transition-opacity duration-300 hover:opacity-60 sm:min-h-[104px] sm:px-[16px] sm:py-[18px] lg:min-h-[112px] lg:border-r lg:px-[22px] lg:py-[22px] last:lg:border-r-0"
+              >
+                <div className="flex items-center justify-between gap-[12px]">
+                  <p className="text-[9px] font-[500] uppercase leading-none tracking-[0.08em] text-[#312726]/42 sm:text-[10px]">
+                    {item.label}
+                  </p>
 
-                    <div className="min-w-0">
-                      <p className="text-[11px] font-[500] uppercase leading-none tracking-[0.06em] text-[#312726]/38 sm:text-[12px]">
-                        {item.label}
-                      </p>
+                  <Icon className="h-[13px] w-[13px] text-[#312726]/42 sm:h-[14px] sm:w-[14px]" />
+                </div>
 
-                      <p className="mt-[8px] break-words text-[17px] font-[500] leading-[1.1] tracking-[-0.04em] text-[#312726] sm:text-[22px]">
-                        {item.value}
-                      </p>
-                    </div>
-                  </div>
-
-                  <span className="hidden text-[20px] text-[#312726]/30 transition-transform duration-300 group-hover:translate-x-[4px] sm:block">
-                    →
-                  </span>
-                </motion.a>
-              );
-            })}
-          </motion.div>
-        </div>
+                <p className="mt-[18px] break-words text-[17px] font-[500] leading-[1.05] tracking-[-0.045em] text-[#312726] sm:text-[18px] lg:text-[17px] xl:text-[18px]">
+                  {item.value}
+                </p>
+              </motion.a>
+            );
+          })}
+        </motion.div>
 
         <motion.div
           variants={fadeUp}
@@ -155,12 +218,12 @@ export default function Contact() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mt-[52px] h-[310px] w-full overflow-hidden rounded-[24px] border border-[#312726]/8 bg-white/50 sm:mt-[76px] sm:h-[400px] sm:rounded-[30px] lg:mt-[105px] lg:h-[460px]"
+          className="mt-[46px] h-[300px] w-full overflow-hidden rounded-[22px] border border-[#312726]/8 bg-white/50 sm:mt-[64px] sm:h-[380px] sm:rounded-[28px] lg:mt-[84px] lg:h-[430px]"
         >
           <iframe
             src={mapSrc}
             title="Ubicación de Baires Fly en el mapa"
-            className="h-full w-full border-0 grayscale"
+            className="h-full w-full border-0"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
