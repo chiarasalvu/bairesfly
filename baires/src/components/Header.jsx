@@ -82,7 +82,7 @@ export default function Header() {
           <img
             src="/img/logo.png"
             alt="Baires Fly S.A."
-            className="h-[96px] w-auto sm:h-[110px] lg:h-[128px]"
+            className="h-[130px] w-auto sm:h-[110px] lg:h-[128px]"
           />
         </motion.a>
 
