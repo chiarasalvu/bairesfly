@@ -64,15 +64,17 @@ export default function About() {
       className="font-gt-america relative w-full overflow-hidden bg-[#F7F7F6] px-[32px] pb-[150px] pt-[130px] text-[#312726] sm:px-[48px] lg:px-[56px] lg:pb-[160px] lg:pt-[158px]"
     >
       {/* Imagen decorativa de fondo */}
-      <div className="pointer-events-none absolute bottom-0 right-0 z-0 h-full w-[55%] select-none">
+      <div className="pointer-events-none absolute bottom-0 right-0 z-0 h-full w-full select-none sm:w-[65%] lg:w-[55%]">
         <Image
           src="/img/avion-hero.png"
           alt=""
           fill
-          className="object-cover object-left opacity-[0.09] grayscale"
+          className="object-cover object-center opacity-[0.14] grayscale sm:object-left"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F7F7F6] via-[#F7F7F6]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F7F7F6]/60 via-transparent to-transparent lg:from-[#F7F7F6] lg:via-[#F7F7F6]/20 lg:to-transparent" />
+        <div className="absolute inset-0 hidden bg-gradient-to-l from-[#F7F7F6] via-[#F7F7F6]/40 to-transparent lg:block" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F7F7F6]/40 via-transparent to-transparent" />
       </div>
 
       <div className="relative z-10">

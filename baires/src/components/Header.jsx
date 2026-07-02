@@ -94,7 +94,7 @@ export default function Header() {
               variants={fadeDown}
               transition={{ duration: 0.6, ease: "easeOut" }}
               href={item.href}
-              className="group relative overflow-hidden text-[15px] font-normal leading-none"
+              className="group relative overflow-hidden text-[15px] font-normal leading-none lg:text-[17px]"
             >
               <span className="block transition-transform duration-500 group-hover:-translate-y-full">
                 {item.label}
@@ -110,7 +110,7 @@ export default function Header() {
           variants={fadeDown}
           transition={{ duration: 0.6, ease: "easeOut" }}
           href="mailto:consultas@bairesfly.com"
-          className="hidden text-[15px] font-normal leading-none transition-opacity hover:opacity-70 lg:block"
+          className="hidden text-[15px] font-normal leading-none transition-opacity hover:opacity-70 lg:block lg:text-[17px]"
         >
           consultas@bairesfly.com
         </motion.a>

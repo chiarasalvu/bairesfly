@@ -98,7 +98,7 @@ const planes = [
       "/img/500/g500-interior7.jpeg",
       // "/img/500/g500-interior8.jpeg",
     ],
-    floorPlans: ["/img/500/g500-dia.png", "/img/g500-noche.png"],
+    floorPlans: ["/img/500/g500-dia.png", "/img/500/g500-noche.png"],
     specs: [
       { label: "Cantidad de pasajeros", value: "14 PASAJEROS" },
       { label: "Camas", value: "PARA 6 PASAJEROS AL MISMO TIEMPO" },

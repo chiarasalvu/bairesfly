@@ -16,11 +16,11 @@ export default function GlobalReach() {
     >
       {/* Mobile */}
       <Image
-        src="/img/mapa-mobile.png"
+        src="/img/mundo-mobile.png"
         alt=""
         fill
         priority
-        className="object-cover object-center sm:hidden"
+        className="object-cover object-top sm:hidden"
       />
       {/* Tablet / Desktop */}
       <Image
