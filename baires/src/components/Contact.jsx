@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -138,8 +139,6 @@ const contactItems = [
   },
 ];
 
-const mapSrc =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.5167531084594!2d-58.41155652422118!3d-34.565788955496224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb573297c3825%3A0x91fd614d89179aeb!2sBaires%20Fly!5e0!3m2!1ses!2sar!4v1782260882891!5m2!1ses!2sar";
 
 export default function Contact() {
   return (
@@ -218,15 +217,13 @@ export default function Contact() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mt-[46px] h-[300px] w-full overflow-hidden rounded-[22px] border border-[#312726]/8 bg-white/50 sm:mt-[64px] sm:h-[380px] sm:rounded-[28px] lg:mt-[84px] lg:h-[430px]"
+          className="relative mt-[46px] hidden h-[300px] w-full overflow-hidden rounded-[22px] border border-[#312726]/8 sm:mt-[64px] sm:block sm:h-[380px] sm:rounded-[28px] lg:mt-[84px] lg:h-[430px]"
         >
-          <iframe
-            src={mapSrc}
-            title="Ubicación de Baires Fly en el mapa"
-            className="h-full w-full border-0"
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+          <Image
+            src="/img/ubicacion.png"
+            alt="Ubicación de Baires Fly"
+            fill
+            className="object-cover"
           />
         </motion.div>
       </div>

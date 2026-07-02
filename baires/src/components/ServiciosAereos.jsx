@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 
 const services = [
@@ -41,7 +40,7 @@ const container = {
 
 export default function ServiciosAereos() {
   return (
-    <section className="font-gt-america relative w-full overflow-hidden bg-black px-[18px] py-[72px] text-white sm:px-[48px] sm:py-[96px] lg:px-[72px] lg:py-[20px] xl:py-[86px]">
+    <section id="servicios" className="font-gt-america relative w-full overflow-hidden bg-black px-[18px] py-[72px] text-white sm:px-[48px] sm:py-[96px] lg:px-[72px] lg:py-[20px] xl:py-[86px]">
       <div className="mx-auto w-full">
         <motion.div
           variants={fadeUp}

@@ -6,11 +6,18 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const planes = [
   {
-    name: "Lear Jet 35",
+    name: "Learjet 35",
     capacity: "6 pasajeros.",
-    cardImage: "/img/jet35.png",
-    exteriorImage: "/img/jet35-interior1.png",
-    interiorImage: "/img/jet35-interior2.png",
+    cardImage: "/img/35/35.png",
+    exteriorImage: "/img/35/learjet35-interior1.jpg",
+    interiorImage: "/img/35/learjet35-interior2.png",
+    photos: [
+      "/img/35/learjet35-interior2.png",
+      "/img/35/learjet35-interior3.jpg",
+      "/img/35/learjet35-interior1.jpg",
+      "/img/35/learjet35-interior4.png",
+    ],
+    floorPlans: [],
     specs: [
       { label: "Cantidad de pasajeros", value: "6 PASAJEROS" },
       { label: "Camas", value: "—" },
@@ -22,9 +29,10 @@ const planes = [
   {
     name: "Learjet 60",
     capacity: "7/8 pasajeros.",
-    cardImage: "/img/jet60.png",
-    exteriorImage: "/img/jet60-interior1.png",
-    interiorImage: "/img/jet60-interior2.png",
+    cardImage: "/img/60/60-portada.png",
+    exteriorImage: "/img/60/jet60-interior1.png",
+    interiorImage: "/img/60/jet60-interior2.png",
+    floorPlans: ["/img/60/jet60-plano1.png"],
     specs: [
       { label: "Cantidad de pasajeros", value: "7/8 PASAJEROS" },
       { label: "Camas", value: "PARA 2 PASAJEROS AL MISMO TIEMPO" },
@@ -44,9 +52,18 @@ const planes = [
   {
     name: "Gulfstream G400",
     capacity: "13 pasajeros.",
-    cardImage: "/img/gulfstream-g400.jpeg",
-    exteriorImage: "/img/g400-interior1.jpeg",
-    interiorImage: "/img/g400-interior2.jpeg",
+    cardImage: "/img/400/g400-portada1.png",
+    exteriorImage: "/img/400/g400-interior1.jpeg",
+    interiorImage: "/img/400/g400-interior2.jpeg",
+    photos: [
+      "/img/400/g400-interior1.jpg",
+      "/img/400/g400-interior2.jpg",
+      "/img/400/g400-interior3.jpeg",
+      "/img/400/g400-interior4.jpg",
+      "/img/400/g400-interior5.jpg",
+    ],
+    floorPlans: ["/img/400/g400-dia-plano.png", "/img/400/g400-noche-plano.png"],
+    floorPlanScale: "scale-[1.1] sm:scale-[1.5]",
     specs: [
       { label: "Cantidad de pasajeros", value: "13 PASAJEROS" },
       { label: "Camas", value: "PARA 6 PASAJEROS AL MISMO TIEMPO" },
@@ -69,9 +86,19 @@ const planes = [
   {
     name: "Gulfstream G500",
     capacity: "14 pasajeros.",
-    cardImage: "/img/g500.jpeg",
-    exteriorImage: "/img/g500-interior1.jpeg",
-    interiorImage: "/img/g500-interior2.jpeg",
+    cardImage: "/img/500/500-portada.png",
+    exteriorImage: "/img/500/g500-interior1.jpeg",
+    interiorImage: "/img/500/g500-interior2.jpeg",
+    photos: [
+      "/img/500/g500-interior1.jpeg",
+      "/img/500/g500-interior3.jpeg",
+      "/img/500/g500-interior4.jpeg",
+      "/img/500/g500-interior5.jpeg",
+      "/img/500/g500-interior6.jpeg",
+      "/img/500/g500-interior7.jpeg",
+      // "/img/500/g500-interior8.jpeg",
+    ],
+    floorPlans: ["/img/500/g500-dia.png", "/img/g500-noche.png"],
     specs: [
       { label: "Cantidad de pasajeros", value: "14 PASAJEROS" },
       { label: "Camas", value: "PARA 6 PASAJEROS AL MISMO TIEMPO" },
@@ -99,63 +126,139 @@ const fadeUp = {
 };
 
 function PlaneDetails({ selected }) {
+  const hasFloorPlans = selected.floorPlans && selected.floorPlans.length > 0;
+  const photos = selected.photos ?? [selected.exteriorImage, selected.interiorImage].filter(Boolean);
+  const [photoIndex, setPhotoIndex] = useState(0);
+
   return (
-    <div className="mt-[20px] grid grid-cols-1 gap-[32px] rounded-[20px] bg-[#1c1c1c] p-[22px] text-white sm:mt-[32px] sm:rounded-[24px] sm:p-[40px] lg:grid-cols-[0.8fr_1fr_1fr] lg:gap-[48px]">
-      <div>
-        <h3 className="text-[26px] font-[400] tracking-[-0.02em] lg:text-[32px]">
-          {selected.name}
-        </h3>
+    <div className="mt-[20px] rounded-[20px] bg-[#1c1c1c] text-white sm:mt-[32px] sm:rounded-[24px]">
+      <div className="p-[22px] sm:p-[40px]">
+        {/* Specs + carrusel + servicios */}
+        <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[0.8fr_1fr_1fr] lg:gap-[40px]">
+          <div>
+            <h3 className="text-[22px] font-[400] tracking-[-0.02em] lg:text-[28px]">
+              {selected.name}
+            </h3>
 
-        <dl className="mt-[28px] flex flex-col gap-[18px] sm:mt-[32px] sm:gap-[20px]">
-          {selected.specs.map((spec) => (
-            <div key={spec.label}>
-              <dt className="text-[11px] uppercase tracking-[0.02em] text-white/45 sm:text-[12px]">
-                {spec.label}
-              </dt>
+            <dl className="mt-[22px] flex flex-col gap-[14px] sm:mt-[26px]">
+              {selected.specs.map((spec) => (
+                <div key={spec.label}>
+                  <dt className="text-[11px] uppercase tracking-[0.02em] text-white/45 sm:text-[12px]">
+                    {spec.label}
+                  </dt>
+                  <dd className="mt-[3px] text-[13px] font-[400] uppercase leading-[1.35] tracking-[-0.01em] text-white sm:text-[14px]">
+                    {spec.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
 
-              <dd className="mt-[4px] text-[13px] font-[400] uppercase leading-[1.35] tracking-[-0.01em] text-white sm:text-[14px]">
-                {spec.value}
-              </dd>
+          {/* Carrusel */}
+          <div>
+            <div className="relative h-[240px] w-full overflow-hidden rounded-[10px] bg-white/5 sm:h-[280px]">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={photoIndex}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.28, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={photos[photoIndex]}
+                    alt={`${selected.name} foto ${photoIndex + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
+              </AnimatePresence>
+
+              {photos.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => setPhotoIndex((photoIndex - 1 + photos.length) % photos.length)}
+                    aria-label="Foto anterior"
+                    className="absolute left-[10px] top-1/2 z-10 flex h-[30px] w-[30px] -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm transition-colors hover:bg-black/65"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M8 2L3 6L8 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setPhotoIndex((photoIndex + 1) % photos.length)}
+                    aria-label="Siguiente foto"
+                    className="absolute right-[10px] top-1/2 z-10 flex h-[30px] w-[30px] -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm transition-colors hover:bg-black/65"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M4 2L9 6L4 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+
+                  <div className="absolute bottom-[10px] left-1/2 z-10 flex -translate-x-1/2 gap-[6px]">
+                    {photos.map((_, i) => (
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => setPhotoIndex(i)}
+                        aria-label={`Foto ${i + 1}`}
+                        className={`h-[5px] rounded-full transition-all duration-300 ${
+                          i === photoIndex ? "w-[14px] bg-white" : "w-[5px] bg-white/40"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
-          ))}
-        </dl>
-      </div>
+          </div>
 
-      <div className="flex flex-col gap-[16px] sm:gap-[20px]">
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[12px] bg-white/5">
-          <Image
-            src={selected.exteriorImage}
-            alt={`${selected.name} exterior`}
-            fill
-            className="object-cover"
-          />
+          <div>
+            <h4 className="text-[11px] uppercase tracking-[0.02em] text-white/45 sm:text-[12px]">
+              Servicios incluidos
+            </h4>
+
+            <div className="mt-[14px] flex flex-col gap-[8px]">
+              {selected.services.map((service) => (
+                <p
+                  key={service}
+                  className="text-[13px] leading-[1.4] text-white/85 sm:text-[14px]"
+                >
+                  — {service}
+                </p>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[12px] bg-white/5">
-          <Image
-            src={selected.interiorImage}
-            alt={`${selected.name} interior`}
-            fill
-            className="object-cover"
-          />
-        </div>
-      </div>
+        {/* Planos de cabina */}
+        {hasFloorPlans && (
+          <div className="mt-[28px] border-t border-white/10 pt-[28px]">
+            <h4 className="text-[11px] uppercase tracking-[0.02em] text-white/45 sm:text-[12px]">
+              Planos de cabina
+            </h4>
 
-      <div>
-        <h4 className="text-[11px] uppercase tracking-[0.02em] text-white/45 sm:text-[12px]">
-          Servicios incluidos
-        </h4>
-
-        <div className="mt-[16px] flex flex-col gap-[10px]">
-          {selected.services.map((service) => (
-            <p
-              key={service}
-              className="text-[13px] leading-[1.45] text-white/85 sm:text-[14px]"
-            >
-              — {service}
-            </p>
-          ))}
-        </div>
+            <div className="mt-[16px] grid grid-cols-1 gap-[12px] sm:grid-cols-2">
+              {selected.floorPlans.map((plan, i) => (
+                <div
+                  key={i}
+                  className="relative h-[140px] w-full overflow-hidden rounded-[10px] bg-white/5 sm:h-[160px]"
+                >
+                  <Image
+                    src={plan}
+                    alt={`${selected.name} plano ${i + 1}`}
+                    fill
+                    className={`object-contain ${selected.floorPlanScale ?? ""}`}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

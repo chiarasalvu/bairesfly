@@ -4,11 +4,11 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const items = [
-  {
-    title: "Equipaje sin límites",
-    description: "Viajá con lo que necesites, sin restricciones de peso ni tamaño.",
-    image: "/img/avion.jpg",
-  },
+  // {
+  //   title: "Equipaje sin límites",
+  //   description: "Viajá con lo que necesites, sin restricciones de peso ni tamaño.",
+  //   image: "/img/avion.jpg",
+  // },
   {
     title: "Pet Friendly",
     description: "Tu mascota viaja con vos en cabina.",

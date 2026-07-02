@@ -1,16 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const values = [
   {
     title: "Flota Verificada",
     description:
-      "Cada aeronave pasa controles de mantenimiento estrictos antes de cada salida.",
+      "Cada aeronave pasa controles de mantenimiento estrictos antes de cada salida. Contamos con mantenimiento propio habilitado y certificado por ANAC.",
   },
   {
     title: "Tripulación Certificada",
-    description: "Pilotos y staff con horas de vuelo y formación continua",
+    description: "Pilotos y staff con horas de vuelo y formación continua. Realizamos simulaciones en CAE certificado por la FAA.",
   },
   {
     title: "Viaje a medida",
@@ -60,8 +61,21 @@ export default function About() {
   return (
     <section
       id="nosotros"
-      className="font-gt-america relative w-full bg-[#F7F7F6] px-[32px] pb-[150px] pt-[130px] text-[#312726] sm:px-[48px] lg:px-[56px] lg:pb-[160px] lg:pt-[158px]"
+      className="font-gt-america relative w-full overflow-hidden bg-[#F7F7F6] px-[32px] pb-[150px] pt-[130px] text-[#312726] sm:px-[48px] lg:px-[56px] lg:pb-[160px] lg:pt-[158px]"
     >
+      {/* Imagen decorativa de fondo */}
+      <div className="pointer-events-none absolute bottom-0 right-0 z-0 h-full w-[55%] select-none">
+        <Image
+          src="/img/avion-hero.png"
+          alt=""
+          fill
+          className="object-cover object-left opacity-[0.09] grayscale"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F7F7F6] via-[#F7F7F6]/60 to-transparent" />
+      </div>
+
+      <div className="relative z-10">
       <motion.div
         variants={fadeUp}
         initial="hidden"
@@ -100,9 +114,7 @@ export default function About() {
         </motion.h2>
 
         <p className="mt-[38px] max-w-[780px] text-[18px] font-medium leading-[20px] tracking-[-1px] text-[#312726]/45 sm:text-[19px] md:text-[20px]">
-          En Baires Fly combinamos atención cercana, aeronaves de primer nivel y
-          una operación eficiente para resolver cada trayecto con precisión,
-          discreción y confort.
+          Operando desde el año 1996, Baires Fly S.A. es líder en su rubro, con una vasta cartera de clientes que año tras año nos siguen eligiendo y confiando en nuestra idoneidad.
         </p>
       </motion.div>
 
@@ -130,6 +142,7 @@ export default function About() {
             </p>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   );

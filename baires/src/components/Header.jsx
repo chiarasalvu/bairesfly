@@ -7,6 +7,7 @@ const navItems = [
   { label: "Nosotros", href: "#nosotros" },
   { label: "Flota", href: "#flota" },
   { label: "Beneficios", href: "#beneficios" },
+  { label: "Servicios", href: "#servicios" },
   { label: "Destinos", href: "#destinos" },
   { label: "Contacto", href: "#contacto" },
 ];
@@ -81,13 +82,13 @@ export default function Header() {
           <img
             src="/img/logo.png"
             alt="Baires Fly S.A."
-            className="h-[86px] w-auto sm:h-[96px] lg:h-[108px]"
+            className="h-[96px] w-auto sm:h-[110px] lg:h-[128px]"
           />
         </motion.a>
 
         {/* NAV DESKTOP */}
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-[34px] lg:flex">
-          {navItems.slice(0, 4).map((item) => (
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-[28px] lg:flex">
+          {navItems.slice(0, 5).map((item) => (
             <motion.a
               key={item.label}
               variants={fadeDown}
