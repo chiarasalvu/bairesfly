@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -129,6 +129,24 @@ function PlaneDetails({ selected }) {
   const hasFloorPlans = selected.floorPlans && selected.floorPlans.length > 0;
   const photos = selected.photos ?? [selected.exteriorImage, selected.interiorImage].filter(Boolean);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const touchStartX = useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        setPhotoIndex((prev) => (prev + 1) % photos.length);
+      } else {
+        setPhotoIndex((prev) => (prev - 1 + photos.length) % photos.length);
+      }
+    }
+    touchStartX.current = null;
+  };
 
   return (
     <div className="mt-[20px] rounded-[20px] bg-[#1c1c1c] text-white sm:mt-[32px] sm:rounded-[24px]">
@@ -156,7 +174,11 @@ function PlaneDetails({ selected }) {
 
           {/* Carrusel */}
           <div>
-            <div className="relative h-[240px] w-full overflow-hidden rounded-[10px] bg-white/5 sm:h-[280px]">
+            <div
+              className="relative h-[240px] w-full overflow-hidden rounded-[10px] bg-white/5 sm:h-[280px]"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={photoIndex}
