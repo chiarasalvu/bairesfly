@@ -23,7 +23,14 @@ const planes = [
       { label: "Velocidad", value: "430 KTS  |  796 KM/H" },
       { label: "Alcance", value: "1400 NM  |  3250 KM" },
     ],
-    services: ["Información próximamente."],
+    services: [
+      "Catering especial: comida gourmet, snacks, bebidas, gaseosas y open bar.",
+      "Amenities: diarios, revistas especializadas, mantas y almohadas de puro algodón.",
+      "Servicio de cabina.",
+      "Aire acondicionado Freon.",
+      "Cafetera.",
+      "Toma de corriente 110V.",
+    ],
   },
   {
     name: "Learjet 60",
