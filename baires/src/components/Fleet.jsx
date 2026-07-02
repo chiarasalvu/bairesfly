@@ -19,10 +19,9 @@ const planes = [
     ],
     floorPlans: [],
     specs: [
-      { label: "Cantidad de pasajeros", value: "6 PASAJEROS" },
-      { label: "Camas", value: "—" },
-      { label: "Velocidad", value: "—" },
-      { label: "Alcance", value: "—" },
+      { label: "Cantidad de pasajeros", value: "6/7 PASAJEROS" },
+      { label: "Velocidad", value: "430 KTS  |  796 KM/H" },
+      { label: "Alcance", value: "1400 NM  |  3250 KM" },
     ],
     services: ["Información próximamente."],
   },
@@ -36,8 +35,8 @@ const planes = [
     specs: [
       { label: "Cantidad de pasajeros", value: "7/8 PASAJEROS" },
       { label: "Camas", value: "PARA 2 PASAJEROS AL MISMO TIEMPO" },
-      { label: "Velocidad", value: "420 KTS  |  778 KM/H" },
-      { label: "Alcance", value: "2409 NM  |  4461 KM" },
+      { label: "Velocidad", value: "450 KTS  |  840 KM/H" },
+      { label: "Alcance", value: "1800 NM  |  3250 KM" },
     ],
     services: [
       "Catering especial: comida gourmet, snacks, bebidas, gaseosas y open bar.",
