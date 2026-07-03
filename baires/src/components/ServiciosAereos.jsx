@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import NextImage from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../lib/LanguageContext";
 
@@ -79,19 +79,19 @@ function ServicePanel({ service, photos, t }) {
       <div className="flex flex-col gap-[10px]">
         {photos.length === 1 ? (
           <div className="relative h-[280px] w-full overflow-hidden rounded-[14px] bg-white/5 sm:h-[380px] lg:h-full lg:min-h-[420px]">
-            <Image src={photos[0]} alt={service.title} fill className="object-cover" />
+            <NextImage src={photos[0]} alt={service.title} fill className="object-cover" />
           </div>
         ) : (
           <>
             <div className="grid grid-cols-2 gap-[10px]">
               {photos.slice(0, 2).map((src, i) => (
                 <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-[14px] bg-white/5">
-                  <Image src={src} alt={`${service.title} ${i + 1}`} fill className="object-cover" />
+                  <NextImage src={src} alt={`${service.title} ${i + 1}`} fill className="object-cover" />
                 </div>
               ))}
             </div>
             <div className="relative h-[200px] w-full overflow-hidden rounded-[14px] bg-white/5 sm:h-[240px]">
-              <Image src={photos[2]} alt={`${service.title} 3`} fill className="object-cover" />
+              <NextImage src={photos[2]} alt={`${service.title} 3`} fill className="object-cover" />
             </div>
           </>
         )}
@@ -118,9 +118,11 @@ export default function ServiciosAereos() {
         }`}
       >
         <div className="flex h-[96px] w-full items-center justify-center sm:h-[100px]">
-          <img
+          <NextImage
             src={icons[index]}
             alt={service.title}
+            width={100}
+            height={100}
             className="max-h-[88px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.04] sm:max-h-[100px]"
           />
         </div>

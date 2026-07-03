@@ -31,6 +31,7 @@ export default function Hero() {
           muted
           loop
           playsInline
+          preload="metadata"
           poster="/img/avion-hero.png"
           className="h-full w-full object-cover"
         >

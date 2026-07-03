@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "../lib/LanguageContext";
 
@@ -48,9 +49,12 @@ export default function Header() {
           className="relative z-50 flex items-center gap-[10px]"
           onClick={closeMenu}
         >
-          <img
+          <Image
             src="/img/logo.png"
             alt="Baires Fly S.A."
+            width={400}
+            height={130}
+            priority
             className="h-[130px] w-auto sm:h-[110px] lg:h-[128px]"
           />
         </motion.a>

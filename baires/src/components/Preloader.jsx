@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const MIN_DURATION = 2600;
+const MIN_DURATION = 1800;
 
 export default function Preloader() {
   const [loading, setLoading] = useState(true);
@@ -46,7 +46,7 @@ export default function Preloader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{
-            duration: 1.35,
+            duration: 0.9,
             ease: [0.76, 0, 0.24, 1],
           }}
           className="font-gt-america fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black px-[24px] text-center text-white"
@@ -81,9 +81,9 @@ export default function Preloader() {
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{
-              duration: 1.7,
+              duration: 1.2,
               ease: [0.22, 1, 0.36, 1],
-              delay: 0.8,
+              delay: 0.7,
             }}
             className="mt-[28px] h-px w-[120px] origin-left bg-white/25"
           />
