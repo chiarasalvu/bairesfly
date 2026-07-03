@@ -2,15 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-
-const navItems = [
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Flota", href: "#flota" },
-  { label: "Beneficios", href: "#beneficios" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Destinos", href: "#destinos" },
-  { label: "Contacto", href: "#contacto" },
-];
+import { useLanguage } from "../lib/LanguageContext";
 
 const container = {
   hidden: {},
@@ -25,42 +17,19 @@ const fadeDown = {
 };
 
 const menuOverlay = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.35,
-      ease: "easeOut",
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: 0.25,
-      ease: "easeOut",
-    },
-  },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.35, ease: "easeOut" } },
+  exit: { opacity: 0, transition: { duration: 0.25, ease: "easeOut" } },
 };
 
 const menuItem = {
-  hidden: {
-    opacity: 0,
-    y: 14,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.45,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { lang, toggle, t } = useLanguage();
 
   const closeMenu = () => setIsOpen(false);
 
@@ -88,7 +57,7 @@ export default function Header() {
 
         {/* NAV DESKTOP */}
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-[28px] lg:flex">
-          {navItems.slice(0, 5).map((item) => (
+          {t.header.nav.slice(0, 5).map((item) => (
             <motion.a
               key={item.label}
               variants={fadeDown}
@@ -106,35 +75,59 @@ export default function Header() {
           ))}
         </nav>
 
-        <motion.a
-          variants={fadeDown}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          href="mailto:consultas@bairesfly.com"
-          className="hidden text-[15px] font-normal leading-none transition-opacity hover:opacity-70 lg:block lg:text-[17px]"
-        >
-          consultas@bairesfly.com
-        </motion.a>
+        <div className="hidden items-center gap-[20px] lg:flex">
+          <motion.a
+            variants={fadeDown}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            href="mailto:consultas@bairesfly.com"
+            className="text-[15px] font-normal leading-none transition-opacity hover:opacity-70 lg:text-[17px]"
+          >
+            consultas@bairesfly.com
+          </motion.a>
+
+          <motion.button
+            variants={fadeDown}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            onClick={toggle}
+            className="flex items-center gap-[6px] text-[13px] leading-none tracking-[0.06em] lg:text-[14px]"
+          >
+            <span className={lang === "es" ? "font-[700] text-white" : "font-[400] text-white/50"}>ES</span>
+            <span className="font-[400] text-white/30">|</span>
+            <span className={lang === "en" ? "font-[700] text-white" : "font-[400] text-white/50"}>EN</span>
+          </motion.button>
+        </div>
 
         {/* BOTÓN MOBILE */}
-        <motion.button
-          variants={fadeDown}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          type="button"
-          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
-          onClick={() => setIsOpen((prev) => !prev)}
-          className="relative z-50 flex h-[34px] w-[34px] items-center justify-center lg:hidden"
-        >
-          <span
-            className={`absolute h-[1.5px] w-[24px] bg-white transition-all duration-300 ${
-              isOpen ? "rotate-45" : "-translate-y-[4px]"
-            }`}
-          />
-          <span
-            className={`absolute h-[1.5px] w-[24px] bg-white transition-all duration-300 ${
-              isOpen ? "-rotate-45" : "translate-y-[4px]"
-            }`}
-          />
-        </motion.button>
+        <div className="relative z-50 flex items-center gap-[16px] lg:hidden">
+          <button
+            onClick={toggle}
+            className="flex items-center gap-[6px] text-[13px] leading-none tracking-[0.06em]"
+          >
+            <span className={lang === "es" ? "font-[700] text-white" : "font-[400] text-white/50"}>ES</span>
+            <span className="font-[400] text-white/30">|</span>
+            <span className={lang === "en" ? "font-[700] text-white" : "font-[400] text-white/50"}>EN</span>
+          </button>
+
+          <motion.button
+            variants={fadeDown}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            type="button"
+            aria-label={isOpen ? t.header.closeMenu : t.header.openMenu}
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="flex h-[34px] w-[34px] items-center justify-center"
+          >
+            <span
+              className={`absolute h-[1.5px] w-[24px] bg-white transition-all duration-300 ${
+                isOpen ? "rotate-45" : "-translate-y-[4px]"
+              }`}
+            />
+            <span
+              className={`absolute h-[1.5px] w-[24px] bg-white transition-all duration-300 ${
+                isOpen ? "-rotate-45" : "translate-y-[4px]"
+              }`}
+            />
+          </motion.button>
+        </div>
       </motion.header>
 
       {/* MENU MOBILE */}
@@ -153,7 +146,7 @@ export default function Header() {
               animate="visible"
               className="flex flex-col items-center gap-[28px]"
             >
-              {navItems.map((item) => (
+              {t.header.nav.map((item) => (
                 <motion.a
                   key={item.label}
                   variants={menuItem}
@@ -172,7 +165,7 @@ export default function Header() {
               transition={{ duration: 0.5, delay: 0.35 }}
               className="absolute bottom-[32px] left-1/2 w-full max-w-[260px] -translate-x-1/2 text-center text-[12px] font-[400] leading-[1.35] text-white/40"
             >
-              Tu cielo, tus reglas.
+              {t.header.tagline}
             </motion.p>
           </motion.div>
         )}

@@ -2,25 +2,18 @@
 
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useLanguage } from "../lib/LanguageContext";
 
-const items = [
-  {
-    title: "Pet Friendly",
-    description: "Tu mascota viaja con vos en cabina.",
-    image: "/img/perro.svg",
-    photos: ["/img/perro.svg", "/img/perro2.jpeg", "/img/perro3.jpeg"],
-  },
-  {
-    title: "Catering a bordo",
-    description: "Menú a tu gusto, preparado para cada vuelo.",
-    image: "/img/catering.svg",
-    photos: ["/img/catering1.jpeg", "/img/catering2.jpeg", "/img/catering3.png"],
-  },
-  {
-    title: "Entretenimiento a bordo",
-    description: "Contenido a demanda en cada butaca.",
-    image: "/img/entretenimiento.svg",
-  },
+const photos = [
+  ["/img/perro.svg", "/img/perro2.jpeg", "/img/perro3.jpeg"],
+  ["/img/catering1.jpeg", "/img/catering2.jpeg", "/img/catering3.png"],
+  null,
+];
+
+const images = [
+  null,
+  null,
+  "/img/entretenimiento.svg",
 ];
 
 const fadeUp = {
@@ -29,6 +22,7 @@ const fadeUp = {
 };
 
 export default function Advantages() {
+  const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState(-1);
   const [photoIndex, setPhotoIndex] = useState(0);
   const touchStartX = useRef(null);
@@ -37,15 +31,16 @@ export default function Advantages() {
     setPhotoIndex(0);
   }, [openIndex]);
 
-  const activeItem = openIndex >= 0 ? items[openIndex] : items[0];
-  const photos = openIndex >= 0 && activeItem.photos ? activeItem.photos : null;
+  const activeIndex = openIndex >= 0 ? openIndex : 0;
+  const activePhotos = openIndex >= 0 ? photos[openIndex] : photos[0];
+  const activeImage = images[activeIndex];
 
-  const prev = () => setPhotoIndex((i) => (i - 1 + photos.length) % photos.length);
-  const next = () => setPhotoIndex((i) => (i + 1) % photos.length);
+  const prev = () => activePhotos && setPhotoIndex((i) => (i - 1 + activePhotos.length) % activePhotos.length);
+  const next = () => activePhotos && setPhotoIndex((i) => (i + 1) % activePhotos.length);
 
   const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
   const handleTouchEnd = (e) => {
-    if (touchStartX.current === null || !photos) return;
+    if (touchStartX.current === null || !activePhotos) return;
     const diff = touchStartX.current - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) diff > 0 ? next() : prev();
     touchStartX.current = null;
@@ -66,13 +61,12 @@ export default function Advantages() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="max-w-[520px] text-[44px] font-[500] leading-[44px] tracking-[-3px] text-[#312726] sm:text-[52px] sm:leading-[52px] sm:tracking-[-4px] lg:text-[60px] lg:leading-[60px] lg:tracking-[-5px]"
           >
-            Volar bien es no resignar nada.
+            {t.advantages.title}
           </motion.h2>
 
           <div className="mt-[60px] lg:mt-[100px]">
-            {items.map((item, index) => {
+            {t.advantages.items.map((item, index) => {
               const isOpen = index === openIndex;
-
               return (
                 <motion.div
                   key={item.title}
@@ -122,7 +116,7 @@ export default function Advantages() {
           </div>
         </div>
 
-        {/* Panel derecho: imagen o carrusel */}
+        {/* Panel derecho */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -133,13 +127,13 @@ export default function Advantages() {
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          {photos ? (
+          {activePhotos ? (
             <>
               <AnimatePresence mode="wait">
                 <motion.img
-                  key={photos[photoIndex]}
-                  src={photos[photoIndex]}
-                  alt={activeItem.title}
+                  key={activePhotos[photoIndex]}
+                  src={activePhotos[photoIndex]}
+                  alt={t.advantages.items[activeIndex]?.title}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -148,8 +142,7 @@ export default function Advantages() {
                 />
               </AnimatePresence>
 
-              {/* Controles carrusel */}
-              {photos.length > 1 && (
+              {activePhotos.length > 1 && (
                 <>
                   <button
                     onClick={prev}
@@ -167,10 +160,8 @@ export default function Advantages() {
                       <path d="M5 2L10 7L5 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
-
-                  {/* Dots */}
                   <div className="absolute bottom-[14px] left-1/2 z-10 flex -translate-x-1/2 gap-[6px]">
-                    {photos.map((_, i) => (
+                    {activePhotos.map((_, i) => (
                       <button
                         key={i}
                         onClick={() => setPhotoIndex(i)}
@@ -184,9 +175,9 @@ export default function Advantages() {
           ) : (
             <AnimatePresence mode="wait">
               <motion.img
-                key={activeItem.image}
-                src={activeItem.image}
-                alt={activeItem.title}
+                key={activeImage}
+                src={activeImage}
+                alt={t.advantages.items[activeIndex]?.title}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}

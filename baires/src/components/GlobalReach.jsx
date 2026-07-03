@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useLanguage } from "../lib/LanguageContext";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -9,22 +10,22 @@ const fadeUp = {
 };
 
 export default function GlobalReach() {
+  const { t, lang } = useLanguage();
+
   return (
     <section
       id="destinos"
       className="font-gt-america relative flex min-h-[820px] w-full items-start overflow-hidden px-[18px] py-[60px] text-[#312726] sm:px-[32px] lg:min-h-[840px] lg:px-[48px] lg:py-[72px]"
     >
-      {/* Mobile */}
       <Image
-        src="/img/mundo-mobile.png"
+        src={lang === "en" ? "/img/mapa-ingles-mobile.png" : "/img/mundo-mobile.png"}
         alt=""
         fill
         priority
         className="object-cover object-top sm:hidden"
       />
-      {/* Tablet / Desktop */}
       <Image
-        src="/img/mapa-destinos-mundo.png"
+        src={lang === "en" ? "/img/mapa-destinos-ingles.png" : "/img/mapa-destinos-mundo.png"}
         alt=""
         fill
         priority
@@ -40,9 +41,9 @@ export default function GlobalReach() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="ml-auto max-w-[760px] text-right text-[44px] font-[500] leading-[44px] tracking-[-3px] text-[#312726] sm:text-[52px] sm:leading-[52px] sm:tracking-[-4px] md:text-[56px] md:leading-[56px] lg:mr-[110px] lg:text-[60px] lg:leading-[60px] lg:tracking-[-5px]"
         >
-          Donde tengas que estar,
+          {t.globalReach.line1}
           <br />
-          ahi llegamos.
+          {t.globalReach.line2}
         </motion.h2>
       </div>
     </section>

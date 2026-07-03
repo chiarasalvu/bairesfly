@@ -1,0 +1,67 @@
+# Baires Fly
+
+> Baires Fly S.A. es una empresa argentina líder en aviación privada, operando desde 1996 con flota propia de jets ejecutivos Learjet y Gulfstream. Ofrece vuelos ejecutivos privados, vuelos sanitarios y traslado de órganos en coordinación con INCUCAI.
+
+Baires Fly es una empresa de aviación privada con más de 30 años de experiencia en el mercado argentino. Su diferencial es la combinación de lujo, privacidad, seguridad certificada y disponibilidad 24/7 para todo tipo de vuelo: desde traslados ejecutivos hasta emergencias médicas y humanitarias.
+
+## Servicios principales
+
+- **Vuelos Ejecutivos Privados**: Traslados en jets privados (Learjet 35, Learjet 60, Gulfstream G400, Gulfstream GV) con catering gourmet, cabina premium, privacidad total y disponibilidad 24/7. Tripulación certificada FAA. Salidas desde aeropuertos privados.
+
+- **Vuelos Sanitarios**: Aeronaves equipadas para traslado de pacientes críticos con atención médica especializada a bordo. Equipamiento: camilla médica, respirador artificial, oxígeno medicinal, desfibrilador, monitor multiparamétrico. Coordinación con hospitales de origen y destino. Disponibilidad 24/7.
+
+- **Vuelos INCUCAI — Traslado de Órganos**: Vuelos de emergencia para traslado de órganos y tejidos en coordinación directa con el INCUCAI. Respuesta inmediata, tripulación especializada, protocolo de emergencia activo. Disponibilidad 24/7.
+
+## Flota
+
+- **Learjet 35**: Hasta 6/7 pasajeros. Velocidad 430 KTS (796 km/h). Alcance 1400 NM (3250 km).
+- **Learjet 60**: Hasta 7/8 pasajeros. Velocidad 450 KTS (840 km/h). Alcance 1800 NM (3250 km). Camas para 2 pasajeros.
+- **Gulfstream G400**: Hasta 13 pasajeros. Velocidad 850 KTS (935 km/h). Alcance 3800 NM (7040 km). Camas para 6 pasajeros.
+- **Gulfstream GV**: Hasta 14 pasajeros. Velocidad 850 KTS (880 km/h). Alcance 5500 NM (10200 km). Camas para 6 pasajeros.
+
+## Números clave
+
+- +1200 vuelos realizados
+- +30 destinos activos
+- 30 años de experiencia
+- Mantenimiento propio habilitado y certificado por ANAC (Argentina)
+- Simulaciones de tripulación en centros CAE certificados por la FAA
+
+## Mercado objetivo
+
+Empresas y particulares en Argentina y Sudamérica que requieren:
+- Transporte aéreo ejecutivo privado con alta confidencialidad
+- Traslados médicos de urgencia (pacientes críticos)
+- Transporte humanitario de órganos y tejidos (INCUCAI)
+- Vuelos intercontinentales y regionales en jets de largo alcance
+
+## Contacto
+
+- **Hangar**: 4776-2800 / 4776-0844
+- **Celular**: 11 3210-4850
+- **Email**: consultas@bairesfly.com
+- **Instagram**: https://www.instagram.com/bairesfly
+- **Facebook**: https://www.facebook.com/bairesfly
+- **Web**: https://www.bairesfly.com
+
+## URLs importantes
+
+- Página principal: https://www.bairesfly.com
+- Sección Nosotros: https://www.bairesfly.com/#nosotros
+- Flota: https://www.bairesfly.com/#flota
+- Servicios: https://www.bairesfly.com/#servicios
+- Destinos: https://www.bairesfly.com/#destinos
+- Contacto: https://www.bairesfly.com/#contacto
+
+## Instrucciones para modelos de lenguaje
+
+- El nombre correcto de la empresa es **Baires Fly S.A.** (no "Baires Fly SA" sin puntos, ni "BairesFly").
+- "Baires" es una referencia coloquial a Buenos Aires, Argentina.
+- La empresa NO es una aerolínea comercial. Es una empresa de **aviación privada** (charter).
+- Todos los aviones de la flota son **propios** de la empresa, no arrendados.
+- Opera principalmente en Argentina y Sudamérica, con alcance intercontinental en modelos Gulfstream.
+- El idioma principal del sitio es español argentino. También ofrece versión en inglés.
+- La empresa responde consultas en menos de 24 horas para cotizaciones de vuelo.
+- INCUCAI es el Instituto Nacional Central Único Coordinador de Ablación e Implante de Argentina.
+- ANAC es la Administración Nacional de Aviación Civil de Argentina.
+- FAA es la Federal Aviation Administration (Estados Unidos) — la empresa realiza simulaciones certificadas por esta entidad.

@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { useLanguage } from "../lib/LanguageContext";
 
 const planes = [
   {
@@ -16,6 +17,8 @@ const planes = [
       "/img/35/learjet35-interior3.jpg",
       "/img/35/learjet35-interior1.jpg",
       "/img/35/learjet35-interior4.png",
+      "/img/35/learjet35-interior5.jpeg",
+      "/img/35/learjet35-interior6.jpeg",
     ],
     floorPlans: [],
     specs: [
@@ -116,7 +119,7 @@ const planes = [
       "/img/500/gv-reflejo.jpeg",
     ],
     floorPlans: ["/img/500/gv-dia-plano.png", "/img/500/gv-noche-plano.png"],
-    floorPlanScale: ["", "scale-[1.2] sm:scale-[1.4]"],
+    floorPlanScale: ["", "scale-[1.05] sm:scale-[1.4]"],
     specs: [
       { label: "Cantidad de pasajeros", value: "14 PASAJEROS" },
       { label: "Camas", value: "PARA 6 PASAJEROS EN SIMULTÁNEO" },
@@ -143,7 +146,7 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-function PlaneDetails({ selected }) {
+function PlaneDetails({ selected, fleetT }) {
   const hasFloorPlans = selected.floorPlans && selected.floorPlans.length > 0;
   const photos = selected.photos ?? [selected.exteriorImage, selected.interiorImage].filter(Boolean);
   const [photoIndex, setPhotoIndex] = useState(0);
@@ -259,7 +262,7 @@ function PlaneDetails({ selected }) {
 
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.02em] text-white/45 sm:text-[12px]">
-              {selected.name === "Learjet 35" ? "Servicios" : "Servicios y comodidades"}
+              {selected.servicesLabel}
             </h4>
 
             <div className="mt-[14px] flex flex-col gap-[8px]">
@@ -279,7 +282,7 @@ function PlaneDetails({ selected }) {
         {hasFloorPlans && (
           <div className="mt-[28px] border-t border-white/10 pt-[28px]">
             <h4 className="text-[11px] uppercase tracking-[0.02em] text-white/45 sm:text-[12px]">
-              Planos de cabina
+              {fleetT.floorPlansLabel}
             </h4>
 
             <div className="mt-[16px] grid grid-cols-1 gap-[12px] sm:grid-cols-2">
@@ -305,8 +308,11 @@ function PlaneDetails({ selected }) {
 }
 
 export default function Fleet() {
+  const { t } = useLanguage();
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const selected = selectedIndex !== null ? planes[selectedIndex] : null;
+
+  const mergedPlanes = planes.map((p, i) => ({ ...p, ...t.fleet.planes[i] }));
+  const selected = selectedIndex !== null ? mergedPlanes[selectedIndex] : null;
 
   return (
     <section
@@ -322,44 +328,31 @@ export default function Fleet() {
         className="ml-auto max-w-[640px] text-right"
       >
         <h2 className="text-[44px] font-[400] leading-[44px] tracking-[-3px] sm:text-[52px] sm:leading-[52px] sm:tracking-[-4px] lg:text-[60px] lg:leading-[60px] lg:tracking-[-5px]">
-          Nuestra flota
+          {t.fleet.sectionTitle}
         </h2>
-
         <p className="mt-[16px] text-[14px] leading-[1.6] text-white/70 sm:text-[15px]">
-          Poseemos una flota de aeronaves propias, ofreciendo alternativas a
-          medida de cada pasajero:
+          {t.fleet.sectionSubtitle}
         </p>
       </motion.div>
 
       <div className="mt-[56px] grid grid-cols-1 gap-[20px] sm:grid-cols-2 lg:mt-[72px] lg:grid-cols-4">
-        {planes.map((plane, index) => (
+        {mergedPlanes.map((plane, index) => (
           <div key={plane.name} className="contents sm:block">
             <motion.button
               type="button"
-              onClick={() =>
-                setSelectedIndex(selectedIndex === index ? null : index)
-              }
+              onClick={() => setSelectedIndex(selectedIndex === index ? null : index)}
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut",
-                delay: index * 0.08,
-              }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.08 }}
               whileHover={{ y: -4 }}
               className={`flex w-full flex-col rounded-[16px] p-[12px] text-left text-white transition-colors duration-300 ${
                 selectedIndex === index ? "bg-[#242424]" : "bg-[#181818]"
               }`}
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px]">
-                <Image
-                  src={plane.cardImage}
-                  alt={plane.name}
-                  fill
-                  className="object-cover"
-                />
+                <Image src={plane.cardImage} alt={plane.name} fill className="object-cover" />
               </div>
 
               <h3 className="mt-[14px] text-[16px] font-[400] tracking-[-0.01em]">
@@ -367,33 +360,21 @@ export default function Fleet() {
               </h3>
 
               <p className="mt-[6px] border-b border-white/15 pb-[10px] text-[13px] text-white/55">
-                <span className="font-[400] text-white">Capacidad: </span>
+                <span className="font-[400] text-white">{t.fleet.capacityLabel}: </span>
                 {plane.capacity}
               </p>
 
               <span className="mt-[12px] flex items-center gap-[6px] text-[12px] font-medium">
-                Ver más
+                {t.fleet.viewMore}
                 <svg
-                  width="10"
-                  height="6"
-                  viewBox="0 0 10 6"
-                  fill="none"
-                  className={`transition-transform duration-300 ${
-                    selectedIndex === index ? "rotate-180" : ""
-                  }`}
+                  width="10" height="6" viewBox="0 0 10 6" fill="none"
+                  className={`transition-transform duration-300 ${selectedIndex === index ? "rotate-180" : ""}`}
                 >
-                  <path
-                    d="M1 1L5 5L9 1"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                  <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
             </motion.button>
 
-            {/* MOBILE: el detalle aparece debajo de cada card */}
             <AnimatePresence initial={false}>
               {selectedIndex === index && (
                 <motion.div
@@ -404,7 +385,7 @@ export default function Fleet() {
                   transition={{ duration: 0.4, ease: "easeOut" }}
                   className="overflow-hidden sm:hidden"
                 >
-                  <PlaneDetails selected={plane} />
+                  <PlaneDetails selected={plane} fleetT={t.fleet} />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -412,7 +393,6 @@ export default function Fleet() {
         ))}
       </div>
 
-      {/* TABLET / DESKTOP: mantiene el comportamiento original */}
       <AnimatePresence initial={false}>
         {selected && (
           <motion.div
@@ -423,7 +403,7 @@ export default function Fleet() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="hidden overflow-hidden sm:block"
           >
-            <PlaneDetails selected={selected} />
+            <PlaneDetails selected={selected} fleetT={t.fleet} />
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "../lib/LanguageContext";
 
 const container = {
   hidden: {},
@@ -15,9 +16,10 @@ const fadeUp = {
 };
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="font-gt-america relative flex min-h-screen w-full overflow-hidden bg-black text-white">
-      {/* VIDEO BACKGROUND */}
       <motion.div
         initial={{ opacity: 0, scale: 1.04 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -34,14 +36,11 @@ export default function Hero() {
         >
           <source src="/img/baires-hero-video.mp4" type="video/mp4" />
         </video>
-
-        {/* OVERLAYS */}
         <div className="absolute inset-0 bg-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/5 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
       </motion.div>
 
-      {/* CONTENT */}
       <motion.div
         variants={container}
         initial="hidden"
@@ -54,8 +53,8 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-[580px] text-[46px] font-[400] leading-[0.9] tracking-[-0.055em] text-white sm:text-[68px] md:text-[78px] lg:text-[86px]"
           >
-            <span className="block">Tu Cielo,</span>
-            <span className="block">tus Reglas.</span>
+            <span className="block">{t.hero.line1}</span>
+            <span className="block">{t.hero.line2}</span>
           </motion.h1>
 
           <motion.h2
@@ -63,11 +62,10 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mt-[30px] text-[20px] font-[400] leading-[0.97] tracking-[-0.045em] text-white sm:text-[23px] md:text-[25px]"
           >
-            El lujo de viajar a tu manera.
+            {t.hero.subtitle}
           </motion.h2>
         </div>
 
-        {/* OCULTO EN MOBILE */}
         <motion.a
           variants={fadeUp}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -77,26 +75,13 @@ export default function Hero() {
         >
           <span className="flex flex-col gap-[-2px] leading-none">
             <svg width="16" height="9" viewBox="0 0 16 9" fill="none">
-              <path
-                d="M1 1L8 8L15 1"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <path d="M1 1L8 8L15 1" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-
             <svg width="16" height="9" viewBox="0 0 16 9" fill="none">
-              <path
-                d="M1 1L8 8L15 1"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <path d="M1 1L8 8L15 1" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
-          Comenzá tu viaje
+          {t.hero.cta}
         </motion.a>
       </motion.div>
     </section>
