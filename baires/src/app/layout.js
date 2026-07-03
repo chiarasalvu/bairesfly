@@ -17,10 +17,6 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Baires Fly",
   description: "Private aviation experience.",
-  icons: {
-    icon: "/img/logo.png",
-    apple: "/img/logo.png",
-  },
 };
 
 export default function RootLayout({ children }) {

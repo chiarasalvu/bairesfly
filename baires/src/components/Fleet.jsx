@@ -38,10 +38,20 @@ const planes = [
     cardImage: "/img/60/60-portada.png",
     exteriorImage: "/img/60/jet60-interior1.png",
     interiorImage: "/img/60/jet60-interior2.png",
+    photos: [
+      "/img/60/jet60-interior1.png",
+      "/img/60/jet60-interior2.png",
+      "/img/60/jet60-interior3.jpg",
+      "/img/60/jet60-interior4.jpeg",
+      "/img/60/jet60-interior5.jpeg",
+      "/img/60/jet60-interior6.jpeg",
+      "/img/60/jet60-interior7.jpeg",
+      "/img/60/jet60-interior8.jpeg",
+    ],
     floorPlans: ["/img/60/jet60-plano1.png"],
     specs: [
       { label: "Cantidad de pasajeros", value: "7/8 PASAJEROS" },
-      { label: "Camas", value: "PARA 2 PASAJEROS AL MISMO TIEMPO" },
+      { label: "Camas", value: "PARA 2 PASAJEROS EN SIMULTÁNEO" },
       { label: "Velocidad", value: "450 KTS  |  840 KM/H" },
       { label: "Alcance", value: "1800 NM  |  3250 KM" },
     ],
@@ -72,7 +82,7 @@ const planes = [
     floorPlanScale: "scale-[1.1] sm:scale-[1.5]",
     specs: [
       { label: "Cantidad de pasajeros", value: "13 PASAJEROS" },
-      { label: "Camas", value: "PARA 6 PASAJEROS AL MISMO TIEMPO" },
+      { label: "Camas", value: "PARA 6 PASAJEROS EN SIMULTÁNEO" },
       { label: "Velocidad", value: "850 KTS  |  935 KM/H" },
       { label: "Alcance", value: "3800 NM  |  7040 KM" },
     ],
@@ -90,7 +100,7 @@ const planes = [
     ],
   },
   {
-    name: "Gulfstream G500",
+    name: "Gulfstream GV",
     capacity: "14 pasajeros.",
     cardImage: "/img/500/500-portada.png",
     exteriorImage: "/img/500/g500-interior1.jpeg",
@@ -103,11 +113,12 @@ const planes = [
       "/img/500/g500-interior6.jpeg",
       "/img/500/g500-interior7.jpeg",
       // "/img/500/g500-interior8.jpeg",
+      "/img/500/gv-reflejo.jpeg",
     ],
     floorPlans: ["/img/500/g500-dia.png", "/img/500/g500-noche.png"],
     specs: [
       { label: "Cantidad de pasajeros", value: "14 PASAJEROS" },
-      { label: "Camas", value: "PARA 6 PASAJEROS AL MISMO TIEMPO" },
+      { label: "Camas", value: "PARA 6 PASAJEROS EN SIMULTÁNEO" },
       { label: "Velocidad", value: "850 KTS  |  880 KM/H" },
       { label: "Alcance", value: "5500 NM  |  10200 KM" },
     ],
@@ -247,7 +258,7 @@ function PlaneDetails({ selected }) {
 
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.02em] text-white/45 sm:text-[12px]">
-              Servicios incluidos
+              {selected.name === "Learjet 35" ? "Servicios" : "Servicios y comodidades"}
             </h4>
 
             <div className="mt-[14px] flex flex-col gap-[8px]">

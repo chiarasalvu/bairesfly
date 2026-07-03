@@ -32,7 +32,7 @@ export default function Hero() {
           poster="/img/avion-hero.png"
           className="h-full w-full object-cover"
         >
-          <source src="/video/hero-video.mp4" type="video/mp4" />
+          <source src="/img/baires-hero.mp4" type="video/mp4" />
         </video>
 
         {/* OVERLAYS */}
