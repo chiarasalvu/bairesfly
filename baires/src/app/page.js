@@ -4,6 +4,7 @@ import About from "../components/About";
 import Fleet from "../components/Fleet";
 import Advantages from "../components/Advantages";
 import ServiciosAereos from "../components/ServiciosAereos";
+import VuelosSanitarios from "../components/VuelosSanitarios";
 import GlobalReach from "../components/GlobalReach";
 import Stats from "../components/Stats";
 import Contact from "../components/Contact";
@@ -18,6 +19,7 @@ export default function Home() {
       <Fleet />
       <Advantages />
       <ServiciosAereos />
+
       <GlobalReach />
       <Stats />
       <Contact />
