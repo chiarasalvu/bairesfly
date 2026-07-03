@@ -78,7 +78,7 @@ const planes = [
       "/img/400/g400-interior4.jpg",
       "/img/400/g400-interior5.jpg",
     ],
-    floorPlans: ["/img/400/g400-dia-plano.png", "/img/400/g400-noche-plano.png"],
+    floorPlans: ["/img/400/400-dia-plano.png", "/img/400/g400-noche-plano.png"],
     floorPlanScale: "scale-[1.1] sm:scale-[1.5]",
     specs: [
       { label: "Cantidad de pasajeros", value: "13 PASAJEROS" },
@@ -115,7 +115,7 @@ const planes = [
       // "/img/500/g500-interior8.jpeg",
       "/img/500/gv-reflejo.jpeg",
     ],
-    floorPlans: ["/img/500/g500-dia.png", "/img/500/g500-noche.png"],
+    floorPlans: ["/img/500/gv-dia-plano.png", "/img/500/gv-noche-plano.png"],
     specs: [
       { label: "Cantidad de pasajeros", value: "14 PASAJEROS" },
       { label: "Camas", value: "PARA 6 PASAJEROS EN SIMULTÁNEO" },
