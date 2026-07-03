@@ -116,6 +116,7 @@ const planes = [
       "/img/500/gv-reflejo.jpeg",
     ],
     floorPlans: ["/img/500/gv-dia-plano.png", "/img/500/gv-noche-plano.png"],
+    floorPlanScale: ["", "scale-[1.2] sm:scale-[1.4]"],
     specs: [
       { label: "Cantidad de pasajeros", value: "14 PASAJEROS" },
       { label: "Camas", value: "PARA 6 PASAJEROS EN SIMULTÁNEO" },
@@ -291,7 +292,7 @@ function PlaneDetails({ selected }) {
                     src={plan}
                     alt={`${selected.name} plano ${i + 1}`}
                     fill
-                    className={`object-contain ${selected.floorPlanScale ?? ""}`}
+                    className={`object-contain ${Array.isArray(selected.floorPlanScale) ? (selected.floorPlanScale[i] ?? "") : (selected.floorPlanScale ?? "")}`}
                   />
                 </div>
               ))}
