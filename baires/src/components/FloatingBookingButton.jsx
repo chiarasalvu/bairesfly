@@ -61,8 +61,23 @@ export default function FloatingBookingButton() {
   async function handleSubmit(event) {
     event.preventDefault();
     setStatus("sending");
-    await new Promise((resolve) => setTimeout(resolve, 900));
-    setStatus("success");
+    const form = event.target;
+    const data = new FormData(form);
+    try {
+      const res = await fetch("https://formspree.io/f/xaqgkopo", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("idle");
+      }
+    } catch {
+      setStatus("idle");
+    }
   }
 
   return (
