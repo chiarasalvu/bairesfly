@@ -115,9 +115,9 @@ export default function Contact() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="relative mt-[46px] hidden h-[300px] w-full overflow-hidden rounded-[22px] border border-[#312726]/8 sm:mt-[64px] sm:block sm:h-[380px] sm:rounded-[28px] lg:mt-[84px] lg:h-[430px]"
+          className="relative mt-[46px] hidden h-[300px] w-full overflow-hidden rounded-[22px] bg-[#F7F7F6] sm:mt-[64px] sm:block sm:h-[380px] sm:rounded-[28px] lg:mt-[84px] lg:h-[460px] xl:h-[520px]"
         >
-          <Image src="/img/ubicacion.png" alt="Ubicación de Baires Fly" fill className="object-cover" />
+          <Image src="/img/mapa-ubicacion.png" alt="Ubicación de Baires Fly" fill className="object-contain" />
         </motion.div>
       </div>
     </section>

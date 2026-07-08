@@ -20,6 +20,14 @@ const planes = [
       "/img/35/learjet35-interior5.jpeg",
       "/img/35/learjet35-interior6.jpeg",
     ],
+    photoPositions: [
+      "object-cover object-center",
+      "object-cover object-center",
+      "object-cover object-center",
+      "object-contain",
+      "object-cover object-center",
+      "object-cover object-center",
+    ],
     floorPlans: [],
     specs: [
       { label: "Cantidad de pasajeros", value: "6/7 PASAJEROS" },
@@ -213,7 +221,7 @@ function PlaneDetails({ selected, fleetT }) {
                     src={photos[photoIndex]}
                     alt={`${selected.name} foto ${photoIndex + 1}`}
                     fill
-                    className="object-cover"
+                    className={selected.photoPositions?.[photoIndex] ?? "object-cover object-center"}
                   />
                 </motion.div>
               </AnimatePresence>
