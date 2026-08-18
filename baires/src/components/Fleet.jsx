@@ -360,7 +360,13 @@ export default function Fleet() {
               }`}
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px]">
-                <Image src={plane.cardImage} alt={plane.name} fill className="object-cover" />
+                <Image
+                  src={plane.cardImage}
+                  alt={plane.name}
+                  fill
+                  sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw"
+                  className="object-cover"
+                />
               </div>
 
               <h3 className="mt-[14px] text-[16px] font-[400] tracking-[-0.01em]">

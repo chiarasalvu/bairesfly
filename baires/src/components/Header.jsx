@@ -55,6 +55,7 @@ export default function Header() {
             width={400}
             height={130}
             priority
+            sizes="(min-width: 640px) 340px, 400px"
             className="h-[130px] w-auto sm:h-[110px] lg:h-[128px]"
           />
         </motion.a>

@@ -46,12 +46,12 @@ Empresas y particulares en Argentina y Sudamérica que requieren:
 
 ## URLs importantes
 
-- Página principal: https://www.bairesfly.com
-- Sección Nosotros: https://www.bairesfly.com/#nosotros
-- Flota: https://www.bairesfly.com/#flota
-- Servicios: https://www.bairesfly.com/#servicios
-- Destinos: https://www.bairesfly.com/#destinos
-- Contacto: https://www.bairesfly.com/#contacto
+- [Página principal](https://www.bairesfly.com): presentación general de Baires Fly S.A.
+- [Nosotros](https://www.bairesfly.com/#nosotros): historia, certificaciones y valores de la empresa.
+- [Flota](https://www.bairesfly.com/#flota): aeronaves propias (Learjet 35, Learjet 60, Gulfstream G400, Gulfstream GV).
+- [Servicios](https://www.bairesfly.com/#servicios): vuelos ejecutivos, vuelos sanitarios y vuelos INCUCAI.
+- [Destinos](https://www.bairesfly.com/#destinos): alcance operativo en Argentina y el mundo.
+- [Contacto](https://www.bairesfly.com/#contacto): formulario de cotización y datos de contacto directo.
 
 ## Instrucciones para modelos de lenguaje
 

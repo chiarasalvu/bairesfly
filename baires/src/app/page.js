@@ -7,6 +7,7 @@ import ServiciosAereos from "../components/ServiciosAereos";
 import VuelosSanitarios from "../components/VuelosSanitarios";
 import GlobalReach from "../components/GlobalReach";
 import Stats from "../components/Stats";
+import Hangarage from "../components/Hangarage";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -19,6 +20,7 @@ export default function Home() {
       <Fleet />
       <Advantages />
       <ServiciosAereos />
+      <Hangarage />
 
       <GlobalReach />
       <Stats />

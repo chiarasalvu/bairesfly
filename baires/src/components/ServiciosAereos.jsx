@@ -79,19 +79,37 @@ function ServicePanel({ service, photos, t }) {
       <div className="flex flex-col gap-[10px]">
         {photos.length === 1 ? (
           <div className="relative h-[280px] w-full overflow-hidden rounded-[14px] bg-white/5 sm:h-[380px] lg:h-full lg:min-h-[420px]">
-            <NextImage src={photos[0]} alt={service.title} fill className="object-cover" />
+            <NextImage
+              src={photos[0]}
+              alt={service.title}
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
           </div>
         ) : (
           <>
             <div className="grid grid-cols-2 gap-[10px]">
               {photos.slice(0, 2).map((src, i) => (
                 <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-[14px] bg-white/5">
-                  <NextImage src={src} alt={`${service.title} ${i + 1}`} fill className="object-cover" />
+                  <NextImage
+                    src={src}
+                    alt={`${service.title} ${i + 1}`}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, 50vw"
+                    className="object-cover"
+                  />
                 </div>
               ))}
             </div>
             <div className="relative h-[200px] w-full overflow-hidden rounded-[14px] bg-white/5 sm:h-[240px]">
-              <NextImage src={photos[2]} alt={`${service.title} 3`} fill className="object-cover" />
+              <NextImage
+                src={photos[2]}
+                alt={`${service.title} 3`}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
             </div>
           </>
         )}

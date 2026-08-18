@@ -14,6 +14,7 @@ export const translations = {
       closeMenu: "Cerrar menú",
     },
     hero: {
+      seoTitle: "Vuelos privados, jets privados y vuelos sanitarios en Argentina",
       line1: "Tu Cielo,",
       line2: "tus Reglas.",
       subtitle: "El lujo de viajar a tu manera.",
@@ -204,6 +205,27 @@ export const translations = {
         },
       ],
     },
+    hangarage: {
+      title: "Hangarage & FBO",
+      subtitle: "Servicios exclusivos para aeronaves, tripulación y pasajeros.",
+      items: [
+        { icon: "hangar", text: "Servicio de parking en hangar privado." },
+        {
+          icon: "handling",
+          text: "Asistencia en tierra (handling): estacionamiento en plataforma/rampa, remolque, limpieza de aeronave y manejo de equipaje.",
+        },
+        { icon: "fuel", text: "Abastecimiento: suministro y gestión de combustible de aviación." },
+        { icon: "flightPlan", text: "Presentación de planes de vuelo." },
+        { icon: "weather", text: "Informes meteorológicos." },
+        { icon: "customs", text: "Coordinación de aduana, migraciones y seguridad." },
+        { icon: "transfer", text: "Traslados privados dentro y fuera del aeropuerto." },
+        {
+          icon: "lounge",
+          text: "Salas VIP exclusivas: espacios privados de descanso, lectura y reuniones de negocios.",
+        },
+        { icon: "catering", text: "Coordinación de servicio de catering, bebidas y hielo a bordo." },
+      ],
+    },
     globalReach: {
       line1: "Donde tengas que estar,",
       line2: "ahi llegamos.",
@@ -263,6 +285,7 @@ export const translations = {
       closeMenu: "Close menu",
     },
     hero: {
+      seoTitle: "Private flights, private jets and air ambulance services in Argentina",
       line1: "Your Sky,",
       line2: "Your Rules.",
       subtitle: "The luxury of traveling your way.",
@@ -451,6 +474,27 @@ export const translations = {
             "Emergency protocol",
           ],
         },
+      ],
+    },
+    hangarage: {
+      title: "Hangarage & FBO",
+      subtitle: "Exclusive services for aircraft, crew and passengers.",
+      items: [
+        { icon: "hangar", text: "Private hangar parking service." },
+        {
+          icon: "handling",
+          text: "Ground handling: ramp/apron parking, towing, aircraft cleaning and baggage handling.",
+        },
+        { icon: "fuel", text: "Fueling: supply and management of aviation fuel." },
+        { icon: "flightPlan", text: "Flight plan filing." },
+        { icon: "weather", text: "Weather briefings." },
+        { icon: "customs", text: "Customs, immigration and security coordination." },
+        { icon: "transfer", text: "Private transfers to and from the airport." },
+        {
+          icon: "lounge",
+          text: "Exclusive VIP lounges: private spaces for rest, reading and business meetings.",
+        },
+        { icon: "catering", text: "Catering, beverage and ice service coordination on board." },
       ],
     },
     globalReach: {

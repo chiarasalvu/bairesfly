@@ -20,24 +20,27 @@ const BASE_URL = "https://www.bairesfly.com";
 export const metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Baires Fly | Aviación Privada de Lujo en Argentina",
+    default: "Baires Fly | Vuelos Privados y Sanitarios en Argentina",
     template: "%s | Baires Fly",
   },
   description:
-    "Baires Fly S.A. — Empresa líder en aviación privada en Argentina desde 1996. Vuelos ejecutivos, sanitarios e INCUCAI en jets Learjet y Gulfstream. Más de 1200 vuelos realizados.",
+    "Vuelos privados, jets privados y vuelos sanitarios en Argentina desde 1996. Flota propia Learjet y Gulfstream, tripulación certificada FAA, disponibilidad 24/7.",
   keywords: [
-    "aviación privada Argentina",
+    "vuelos privados Argentina",
     "jets privados Buenos Aires",
-    "charter aéreo Argentina",
-    "vuelos ejecutivos privados",
-    "alquiler jet privado",
+    "jet privado Argentina",
+    "alquiler de jet privado",
+    "charter privado Argentina",
+    "vuelos ejecutivos Argentina",
+    "aviación ejecutiva",
+    "taxi aéreo Argentina",
     "vuelos sanitarios Argentina",
+    "avión sanitario",
+    "ambulancia aérea Argentina",
     "traslado órganos INCUCAI",
     "Learjet Argentina",
     "Gulfstream Argentina",
     "Baires Fly",
-    "aviación ejecutiva Argentina",
-    "jet privado Argentina",
   ],
   authors: [{ name: "Baires Fly S.A." }],
   creator: "Baires Fly S.A.",
@@ -51,24 +54,24 @@ export const metadata = {
     alternateLocale: "en_US",
     url: BASE_URL,
     siteName: "Baires Fly",
-    title: "Baires Fly | Aviación Privada de Lujo en Argentina",
+    title: "Baires Fly | Vuelos Privados y Sanitarios en Argentina",
     description:
-      "Empresa líder en aviación privada en Argentina desde 1996. Vuelos ejecutivos, sanitarios e INCUCAI en jets Learjet y Gulfstream. Más de 1200 vuelos realizados.",
+      "Vuelos privados, jets privados y vuelos sanitarios en Argentina desde 1996. Flota propia Learjet y Gulfstream, tripulación certificada FAA, disponibilidad 24/7.",
     images: [
       {
         url: "/img/avion-hero.png",
         width: 1200,
         height: 630,
-        alt: "Baires Fly — Aviación Privada Argentina",
+        alt: "Baires Fly — Vuelos Privados y Sanitarios en Argentina",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Baires Fly | Aviación Privada de Lujo en Argentina",
+    title: "Baires Fly | Vuelos Privados y Sanitarios en Argentina",
     description:
-      "Empresa líder en aviación privada en Argentina desde 1996. Vuelos ejecutivos, sanitarios e INCUCAI en jets Learjet y Gulfstream.",
+      "Vuelos privados, jets privados y vuelos sanitarios en Argentina desde 1996. Flota propia Learjet y Gulfstream, disponibilidad 24/7.",
     images: ["/img/avion-hero.png"],
   },
   robots: {
@@ -88,10 +91,11 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "Airline"],
       "@id": `${BASE_URL}/#organization`,
       name: "Baires Fly S.A.",
       url: BASE_URL,
+      slogan: "Tu cielo, tus reglas.",
       logo: {
         "@type": "ImageObject",
         url: `${BASE_URL}/img/logo.png`,
@@ -99,7 +103,7 @@ const jsonLd = {
       },
       foundingDate: "1996",
       description:
-        "Empresa líder en aviación privada en Argentina desde 1996. Operamos vuelos ejecutivos, sanitarios e INCUCAI con flota propia de jets Learjet y Gulfstream.",
+        "Empresa líder en aviación privada en Argentina desde 1996. Operamos vuelos privados, jets privados, vuelos ejecutivos, vuelos sanitarios e INCUCAI con flota propia de jets Learjet y Gulfstream.",
       email: "consultas@bairesfly.com",
       telephone: ["+54-11-4776-2800", "+54-11-3210-4850"],
       address: {
@@ -110,6 +114,18 @@ const jsonLd = {
       areaServed: [
         { "@type": "Country", name: "Argentina" },
         { "@type": "Continent", name: "South America" },
+      ],
+      knowsAbout: [
+        "Vuelos privados",
+        "Jets privados",
+        "Alquiler de jet privado",
+        "Charter privado",
+        "Vuelos ejecutivos",
+        "Aviación ejecutiva",
+        "Taxi aéreo",
+        "Vuelos sanitarios",
+        "Ambulancia aérea",
+        "Traslado de órganos INCUCAI",
       ],
       sameAs: [
         "https://www.instagram.com/bairesfly",
@@ -123,27 +139,36 @@ const jsonLd = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
+              serviceType: "Vuelos privados y jets privados",
               name: "Vuelos Ejecutivos Privados",
               description:
                 "Traslados privados en jets de última generación con total discreción y confort. Tripulación certificada FAA, disponibilidad 24/7, salidas desde aeropuertos privados.",
+              areaServed: { "@type": "Country", name: "Argentina" },
+              provider: { "@id": `${BASE_URL}/#organization` },
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
+              serviceType: "Vuelos sanitarios y ambulancia aérea",
               name: "Vuelos Sanitarios",
               description:
                 "Aeronaves equipadas para el traslado de pacientes críticos con atención médica especializada. Disponibilidad 24/7, coordinación con hospitales, camilla médica, respirador y desfibrilador.",
+              areaServed: { "@type": "Country", name: "Argentina" },
+              provider: { "@id": `${BASE_URL}/#organization` },
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
+              serviceType: "Traslado de órganos INCUCAI",
               name: "Vuelos INCUCAI — Traslado de Órganos",
               description:
                 "Vuelos de emergencia para el traslado de órganos y tejidos en coordinación directa con el INCUCAI. Respuesta inmediata 24/7, protocolo de emergencia activo.",
+              areaServed: { "@type": "Country", name: "Argentina" },
+              provider: { "@id": `${BASE_URL}/#organization` },
             },
           },
         ],
@@ -187,9 +212,9 @@ const jsonLd = {
       "@type": "WebPage",
       "@id": `${BASE_URL}/#webpage`,
       url: BASE_URL,
-      name: "Baires Fly | Aviación Privada de Lujo en Argentina",
+      name: "Baires Fly | Vuelos Privados y Sanitarios en Argentina",
       description:
-        "Baires Fly S.A. — Empresa líder en aviación privada en Argentina desde 1996. Vuelos ejecutivos, sanitarios e INCUCAI en jets Learjet y Gulfstream.",
+        "Baires Fly S.A. — Vuelos privados, jets privados y vuelos sanitarios en Argentina desde 1996. Flota propia Learjet y Gulfstream, disponibilidad 24/7.",
       isPartOf: { "@id": `${BASE_URL}/#website` },
       about: { "@id": `${BASE_URL}/#organization` },
       inLanguage: "es",
@@ -211,8 +236,9 @@ export default function RootLayout({ children }) {
         <link
           rel="preload"
           as="image"
-          href="/img/avion-hero.png"
+          href="/img/avion-hero.webp"
           fetchPriority="high"
+          type="image/webp"
         />
         <script
           type="application/ld+json"

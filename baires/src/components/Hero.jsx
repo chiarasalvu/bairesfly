@@ -32,7 +32,7 @@ export default function Hero() {
           loop
           playsInline
           preload="metadata"
-          poster="/img/avion-hero.png"
+          poster="/img/avion-hero.webp"
           className="h-full w-full object-cover"
         >
           <source src="/img/baires-hero-video.mp4" type="video/mp4" />
@@ -49,22 +49,27 @@ export default function Hero() {
         className="relative z-20 flex min-h-screen w-full flex-col justify-end px-[34px] pb-[140px] pt-[120px] sm:px-[70px] sm:pb-[128px] md:px-[100px] lg:px-[145px] lg:pb-[140px]"
       >
         <div className="flex w-full flex-col">
-          <motion.h1
+          {/* H1 semántico para SEO/accesibilidad: mismo texto que verían lectores de pantalla,
+              visualmente oculto (sr-only) para no alterar el diseño. El titular grande de marca
+              de abajo pasa a H2 y la bajada a párrafo, sin cambiar ni un píxel. */}
+          <h1 className="sr-only">{t.hero.seoTitle}</h1>
+
+          <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-[580px] text-[46px] font-[400] leading-[0.9] tracking-[-0.055em] text-white sm:text-[68px] md:text-[78px] lg:text-[86px]"
           >
             <span className="block">{t.hero.line1}</span>
             <span className="block">{t.hero.line2}</span>
-          </motion.h1>
+          </motion.h2>
 
-          <motion.h2
+          <motion.p
             variants={fadeUp}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mt-[30px] text-[20px] font-[400] leading-[0.97] tracking-[-0.045em] text-white sm:text-[23px] md:text-[25px]"
           >
             {t.hero.subtitle}
-          </motion.h2>
+          </motion.p>
         </div>
 
         <motion.a

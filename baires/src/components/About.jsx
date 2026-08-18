@@ -35,6 +35,7 @@ export default function About() {
           src="/img/avion-hero.png"
           alt=""
           fill
+          sizes="(min-width: 1024px) 55vw, (min-width: 640px) 65vw, 100vw"
           className="object-cover object-center opacity-[0.14] grayscale sm:object-left"
           aria-hidden="true"
         />

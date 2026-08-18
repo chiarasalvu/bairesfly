@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "../lib/LanguageContext";
 
 const photos = [
-  ["/img/perro.svg", "/img/perro2.jpeg", "/img/perro3.jpeg"],
+  ["/img/perro.jpg", "/img/perro2.jpeg", "/img/perro3.jpeg"],
   ["/img/catering1.jpeg", "/img/catering2.jpeg", "/img/catering3.png"],
   null,
 ];
@@ -22,7 +22,7 @@ const fadeUp = {
 };
 
 export default function Advantages() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [openIndex, setOpenIndex] = useState(-1);
   const [photoIndex, setPhotoIndex] = useState(0);
   const touchStartX = useRef(null);
@@ -146,6 +146,7 @@ export default function Advantages() {
                 <>
                   <button
                     onClick={prev}
+                    aria-label={lang === "en" ? "Previous photo" : "Foto anterior"}
                     className="absolute left-[12px] top-1/2 z-10 flex h-[36px] w-[36px] -translate-y-1/2 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-black/50"
                   >
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -154,6 +155,7 @@ export default function Advantages() {
                   </button>
                   <button
                     onClick={next}
+                    aria-label={lang === "en" ? "Next photo" : "Foto siguiente"}
                     className="absolute right-[12px] top-1/2 z-10 flex h-[36px] w-[36px] -translate-y-1/2 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-black/50"
                   >
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -165,6 +167,10 @@ export default function Advantages() {
                       <button
                         key={i}
                         onClick={() => setPhotoIndex(i)}
+                        aria-label={
+                          lang === "en" ? `Go to photo ${i + 1}` : `Ir a la foto ${i + 1}`
+                        }
+                        aria-current={i === photoIndex ? "true" : undefined}
                         className={`h-[6px] rounded-full transition-all duration-300 ${i === photoIndex ? "w-[18px] bg-white" : "w-[6px] bg-white/45"}`}
                       />
                     ))}

@@ -19,14 +19,22 @@ export default function GlobalReach() {
     >
       <Image
         src={lang === "en" ? "/img/mapa-ingles-mobile.png" : "/img/mundo-mobile.png"}
-        alt=""
+        alt={
+          lang === "en"
+            ? "World map showing destinations reached by Baires Fly private jets"
+            : "Mapa mundial con los destinos alcanzados por los jets privados de Baires Fly"
+        }
         fill
         priority
         className="object-cover object-top sm:hidden"
       />
       <Image
         src={lang === "en" ? "/img/mapa-destinos-ingles.png" : "/img/mapa-destinos-mundo.png"}
-        alt=""
+        alt={
+          lang === "en"
+            ? "World map showing destinations reached by Baires Fly private jets"
+            : "Mapa mundial con los destinos alcanzados por los jets privados de Baires Fly"
+        }
         fill
         priority
         className="hidden object-cover object-center sm:block"

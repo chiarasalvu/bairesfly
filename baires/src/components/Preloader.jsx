@@ -3,7 +3,12 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const MIN_DURATION = 1800;
+// Duración mínima de la animación de marca (antes 1800ms fijo, sin tope máximo:
+// en conexiones lentas podía bloquear el scroll y retrasar el LCP indefinidamente
+// hasta que cargara *todo* el contenido de la página, video incluido).
+const MIN_DURATION = 600;
+// Tope duro: si "load" tarda de más, no seguimos bloqueando la página por esto.
+const MAX_DURATION = 2500;
 
 export default function Preloader() {
   const [loading, setLoading] = useState(true);
@@ -18,8 +23,12 @@ export default function Preloader() {
 
   useEffect(() => {
     const start = Date.now();
+    let finished = false;
 
     function finish() {
+      if (finished) return;
+      finished = true;
+
       const elapsed = Date.now() - start;
       const remaining = Math.max(MIN_DURATION - elapsed, 0);
 
@@ -28,15 +37,18 @@ export default function Preloader() {
       }, remaining);
     }
 
+    const safetyTimer = setTimeout(finish, MAX_DURATION);
+
     if (document.readyState === "complete") {
       finish();
     } else {
       window.addEventListener("load", finish);
-
-      return () => {
-        window.removeEventListener("load", finish);
-      };
     }
+
+    return () => {
+      clearTimeout(safetyTimer);
+      window.removeEventListener("load", finish);
+    };
   }, []);
 
   return (
@@ -64,7 +76,7 @@ export default function Preloader() {
             Baires Fly
           </motion.span>
 
-          <motion.h1
+          <motion.p
             initial={{ opacity: 0, y: 18, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{
@@ -75,7 +87,7 @@ export default function Preloader() {
             className="font-gt-america mt-[18px] max-w-[520px] text-[28px] font-[500] leading-[30px] tracking-[-1px] text-white sm:text-[34px] sm:leading-[36px] sm:tracking-[-2px] lg:text-[40px] lg:leading-[42px] lg:tracking-[-5px]"
           >
             El lujo de viajar a tu manera
-          </motion.h1>
+          </motion.p>
 
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}

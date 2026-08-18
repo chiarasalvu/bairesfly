@@ -116,6 +116,7 @@ export default function VuelosSanitarios() {
                   src={src}
                   alt={`Vuelo sanitario ${i + 1}`}
                   fill
+                  sizes="(min-width: 1024px) 25vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -128,6 +129,7 @@ export default function VuelosSanitarios() {
               src={photos[2]}
               alt="Vuelo sanitario 3"
               fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
           </div>
