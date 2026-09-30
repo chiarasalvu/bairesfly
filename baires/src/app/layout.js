@@ -234,7 +234,7 @@ export default function RootLayout({ children }) {
     >
       <head>
       
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager - Baires Fly */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
